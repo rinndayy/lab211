@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/LAB/LAB211/src/quiz1/Main.java</file>
-            <file>file:/C:/LAB/LAB211/src/quiz2/LinearSearch.java</file>
-            <file>file:/C:/LAB/LAB211/src/quiz4/NumberUtils.java</file>
-            <file>file:/C:/LAB/LAB211/src/quiz1/WordCharacterCounter.java</file>
-            <file>file:/C:/LAB/LAB211/src/quiz3/Main.java</file>
-            <file>file:/C:/LAB/LAB211/src/quiz4/Main.java</file>
+            <file>file:/C:/LAB/LAB211/src/week1/CountWC.java</file>
+            <file>file:/C:/LAB/LAB211/src/week1/Main.java</file>
+            <file>file:/C:/LAB/LAB211/src/week1/Calculate.java</file>
+            <file>file:/C:/LAB/LAB211/src/week1/LinearSearch.java</file>
         </group>
     </open-files>
 </project-private>

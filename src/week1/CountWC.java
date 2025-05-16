@@ -12,7 +12,7 @@ import java.util.Map;
  * @author ADMIN
  */
 public class CountWC {
-     private String input;
+    private String input;
 
     public CountWC(String input) {
         this.input = input;
@@ -23,7 +23,7 @@ public class CountWC {
         String[] words = input.toLowerCase().split("\\s+");
         for (String word : words) {
 
-            wordcount.put(word, wordcount.getOrDefault(words, 0) + 1);
+            wordcount.put(word, wordcount.getOrDefault(word, 0) + 1);
         }
         return wordcount;
 
