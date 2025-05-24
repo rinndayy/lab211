@@ -21,15 +21,15 @@ public class Calculate {
     }
 
     void findNumbers(double numbers) {
-        if (isPerfectSquare(numbers)) {
-            if (numbers % 2 != 0) {
+        if (isPerfectSquare(numbers)){
+            if(numbers % 2 != 0) {
                 System.out.println("Number is Odd: " + numbers);
-                System.out.println("Number is Perfect Square: " + numbers);
+                System.out.println("Perfect Square: " + numbers);
             } else {
                 System.out.println("Number is Even: " + numbers);
-                System.out.println("Number is Perfect Square: " + numbers);
+                System.out.println("Perfect Square: " + numbers);
+                
             }
-
             return;
         }
         if (numbers % 2 != 0) {

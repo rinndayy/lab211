@@ -18,12 +18,12 @@ public class CountWC {
         this.input = input;
     }
 
-    Map<String, Integer> countWords() {
-        Map<String, Integer> wordcount = new HashMap<>();
-        String[] words = input.toLowerCase().split("\\s+");
-        for (String word : words) {
+    Map<String, Integer> countWords() { 
+        Map<String, Integer> wordcount = new HashMap<>(); 
+        String[] words = input.toLowerCase().split("\\s+"); 
+        for (String word : words) {  
 
-            wordcount.put(word, wordcount.getOrDefault(word, 0) + 1);
+            wordcount.put(word, wordcount.getOrDefault(word, 0) + 1); 
         }
         return wordcount;
 
@@ -31,13 +31,14 @@ public class CountWC {
 
     Map<Character, Integer> countCharacter() {
         Map<Character, Integer> charcount = new HashMap<>();
-        char[] charac = input.toLowerCase().toCharArray();
+        char[] charac = input.toLowerCase().toCharArray(); 
         for (char c : charac) {
-            if (c != ' ') {
+            if (c != ' ') { 
                 charcount.put(c, charcount.getOrDefault(c, 0) + 1);
             }
         }
 
         return charcount;
     }
+   
 }
