@@ -11,100 +11,79 @@ import java.util.Scanner;
  * @author ADMIN
  */
 public class Matrix {
-     private int rows;
-    private int cols;
+    private int row, col;
     private double[][] data;
 
-    // Constructor
-    public Matrix(int rows, int cols) {
-        this.rows = rows;
-        this.cols = cols;
-        this.data = new double[rows][cols];
+    public Matrix(int row, int col) {
+        this.row = row;
+        this.col = col;
+        data = new double[row][col];
     }
 
-    // Getters
-    public int getRows() {
-        return rows;
+    public void setData(int r, int c, double value) {
+        this.data[r][c] = value;
     }
 
-    public int getCols() {
-        return cols;
+    public double getData(int r, int c) {
+        return this.data[r][c];
     }
 
-    public double[][] getData() {
-        return data;
+    public void setData(double[][] data) {
+        this.data = data;
     }
 
-    // Input matrix values
-    public void inputMatrix(Scanner scanner) {
-        System.out.println("Enter values for a " + rows + "x" + cols + " matrix:");
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                while (true) {
-                    System.out.print("Element [" + i + "][" + j + "]: ");
-                    if (scanner.hasNextDouble()) {
-                        data[i][j] = scanner.nextDouble();
-                        break;
-                    } else {
-                        System.out.println("Values of matrix must be a number.");
-                        scanner.next(); // Consume invalid input
-                    }
-                }
+    public Matrix add(Matrix m) {
+        if (this.row != m.row || this.col != m.col) {
+            System.out.println("Matrix dimensions do not match for addition.");
+            return null;
+        }
+        Matrix result = new Matrix(row, col);
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result.data[i][j] = this.data[i][j] + m.data[i][j];
             }
         }
+        return result;
     }
 
-    // Display the matrix
-    public void displayMatrix() {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                System.out.printf("["  + data[i][j] + "]");
+    public Matrix subtract(Matrix m) {
+        if (this.row != m.row || this.col != m.col) {
+            System.out.println("Matrix dimensions do not match for subtraction.");
+            return null;
+        }
+        Matrix result = new Matrix(row, col);
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                result.data[i][j] = this.data[i][j] - m.data[i][j];
+            }
+        }
+        return result;
+    }
+
+    public Matrix multiply(Matrix m) {
+        if (this.col != m.row) {
+            System.out.println("Matrix dimensions do not allow multiplication.");
+            return null;
+        }
+        Matrix result = new Matrix(this.row, m.col);
+        for (int i = 0; i < this.row; i++) {
+            for (int j = 0; j < m.col; j++) {
+                double sum = 0;
+                for (int k = 0; k < this.col; k++) {
+                    sum += this.data[i][k] * m.data[k][j];
+                }
+                result.data[i][j] = sum;
+            }
+        }
+        return result;
+    }
+
+    public void display() {
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                System.out.printf("%10.2f", data[i][j]);
             }
             System.out.println();
         }
-    }
-
-    // Addition
-    public Matrix additionMatrix(Matrix matrix2) {
-        if (this.rows != matrix2.rows || this.cols != matrix2.cols) {
-            throw new IllegalArgumentException("Matrices must have the same dimensions for addition.");
-        }
-        Matrix result = new Matrix(rows, cols);
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                result.data[i][j] = this.data[i][j] + matrix2.data[i][j];
-            }
-        }
-        return result;
-    }
-
-    // Subtraction
-    public Matrix subtractionMatrix(Matrix matrix2) {
-        if (this.rows != matrix2.rows || this.cols != matrix2.cols) {
-            throw new IllegalArgumentException("Matrices must have the same dimensions for subtraction.");
-        }
-        Matrix result = new Matrix(rows, cols);
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                result.data[i][j] = this.data[i][j] - matrix2.data[i][j];
-            }
-        }
-        return result;
-    }
-
-    // Multiplication
-    public Matrix multiplicationMatrix(Matrix matrix2) {
-        if (this.cols != matrix2.rows) {
-            throw new IllegalArgumentException("Number of columns of the first matrix must equal number of rows of the second matrix.");
-        }
-        Matrix result = new Matrix(this.rows, matrix2.cols);
-        for (int i = 0; i < result.rows; i++) {
-            for (int j = 0; j < result.cols; j++) {
-                for (int k = 0; k < this.cols; k++) {
-                    result.data[i][j] += this.data[i][k] * matrix2.data[k][j];
-                }
-            }
-        }
-        return result;
     }
 }
