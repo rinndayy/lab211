@@ -4,13 +4,12 @@
  */
 package week2;
 
-import java.util.Scanner;
 
 /**
  *
  * @author ADMIN
  */
-public class CalculatePerimeterAndArea {
+public class CalculatePerimeterAndArea {   
     public static double[] rectangle(double width, double length) {
         return new double[] { width * length, 2 * (width + length) };
     }
@@ -26,3 +25,4 @@ public class CalculatePerimeterAndArea {
         return new double[] { area, perimeter };
     }
 }
+//khai báo phương thức tĩnh static: pt thuộc về lớp, không phụ thuộc vào đối tượng (instance), gọi
