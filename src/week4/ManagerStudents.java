@@ -65,9 +65,9 @@ public class ManagerStudents {
 }
     
     
-public int deleteStudent(String id) {
+public int deleteStudent(String id) {         
     for (int i = 0; i < studentsList.size(); i++) {
-        if (studentsList.get(i).getID().equalsIgnoreCase(id)) {
+        if (studentsList.get(i).getID().equalsIgnoreCase(id)) {       //get(i) trả về đối tượng student
             studentsList.remove(i);
             return 1;
         }

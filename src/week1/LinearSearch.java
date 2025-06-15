@@ -19,7 +19,7 @@ public class LinearSearch {
     
     void addValue(int x) {
         Random rd = new Random();
-        for(int i = 0; i < array.length; i++) {
+        for(int i=0;i<array.length;i++){
             array [i] = rd.nextInt(array.length);
         }
     }
@@ -41,7 +41,7 @@ public class LinearSearch {
            }
        }
        return -1;
-    }
+    } 
     
 }
     
